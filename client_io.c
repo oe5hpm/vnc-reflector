@@ -206,11 +206,13 @@ static void rf_client_initmsg(void)
   CL_SLOT *cl = (CL_SLOT *)cur_slot;
   unsigned char msg_server_init[24];
 
+#if 0
   if (cur_slot->readbuf[0] == 0) {
     log_write(LL_WARN, "Non-shared session requested by %s", cur_slot->name);
     aio_close(0);
   }
 
+#endif
   /* Save initial desktop geometry for this client */
   cl->fb_width = g_screen_info.width;
   cl->fb_height = g_screen_info.height;
