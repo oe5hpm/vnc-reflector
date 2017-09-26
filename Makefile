@@ -29,7 +29,7 @@ CFLAGS =	-O2 $(IFLAGS)
 CONFFLAGS =	-DUSE_POLL
 
 # Link with zlib and JPEG libraries
-LDFLAGS =	-L/usr/local/lib -lz -ljpeg
+LDFLAGS =	-lz -ljpeg
 
 PROG = 	vncreflector
 
