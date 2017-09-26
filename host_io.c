@@ -114,6 +114,7 @@ void host_close_hook(void)
     if (g_framebuffer == NULL)
       aio_close(1);
     remove_active_file();
+    exit(1);
   } else {
     log_write(LL_INFO, "Closing previous connection to host");
     host_really_activate(s_new_slot);
