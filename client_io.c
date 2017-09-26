@@ -270,6 +270,11 @@ static void rf_client_msg(void)
   case 6:                       /* ClientCutText */
     aio_setread(rf_client_cuttext_hdr, NULL, 7);
     break;
+  case 253:
+    log_write(LL_ERROR, "client (%s) wants RFB extension, we don't support!",
+              cur_slot->name);
+    aio_close(0);
+    break;
   default:
     log_write(LL_ERROR, "Unknown client message type %d from %s",
               msg_id, cur_slot->name);
